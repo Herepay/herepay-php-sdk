@@ -14,12 +14,13 @@
         "php": "^7.4|^8.0|^8.1|^8.2|^8.3",
         "ext-json": "*",
         "vlucas/phpdotenv": "^5.6@dev",
-        "symfony/var-dumper": "7.3.x-dev"
+        "symfony/var-dumper": "7.3.x-dev",
+        "illuminate/container": "11.x-dev"
     },
     "require-dev": {
         "illuminate/support": "^7.0|^8.0|^9.0|^10.0|^11.0",
         "psr/simple-cache": "^2.0",
-        "phpunit/phpunit": "11.5.x-dev"
+        "phpunit/phpunit": "^11.0"
     },
     "extra": {
         "laravel": {
