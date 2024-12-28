@@ -11,6 +11,7 @@ class HerepayService
     private $secretKey;
     private $apiKey;
     private $privateKey;
+    private $config;
 
     /**
      * Constructor to initialize HerepayService with configuration.
@@ -32,6 +33,7 @@ class HerepayService
         $this->secretKey = $config['secret_key'];
         $this->apiKey = $config['api_key'];
         $this->privateKey = $config['private_key'];
+        $this->config = $config;
     }
 
     /**
@@ -162,5 +164,10 @@ class HerepayService
         $privatekey = openssl_pkey_get_private($this->privateKey);
 
         return hash_hmac('sha256', $dataString, $privatekey);
+    }
+
+    public function getConfig(): array
+    {
+        return $this->config;
     }
 }
