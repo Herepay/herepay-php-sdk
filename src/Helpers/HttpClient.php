@@ -18,7 +18,7 @@ class HttpClient
         ];
 
         if ($body) {
-            $options[CURLOPT_POSTFIELDS] = json_encode($body);
+            $options[CURLOPT_POSTFIELDS] = $body;
         }
 
         curl_setopt_array($ch, $options);
@@ -31,11 +31,7 @@ class HttpClient
         }
 
         curl_close($ch);
-
-        return [
-            'status' => $httpCode,
-            'body' => json_decode($response, true),
-        ];
+        return json_decode($response, true);
     }
 
     private static function formatHeaders($headers)
