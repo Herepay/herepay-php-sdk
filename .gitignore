@@ -2,3 +2,4 @@
 composer.lock
 private.pem
 .env
+.phpunit.result.cache
