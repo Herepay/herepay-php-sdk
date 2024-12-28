@@ -1,5 +1,5 @@
 {
-    "name": "herepay/herepay-sdk",
+    "name": "herepay/herepay-php-sdk",
     "description": "Herepay payment gateway PHP SDK.",
     "version": "1.0.0",
     "type": "sdk",
