@@ -6,9 +6,9 @@ class Herepay
 {
     private static $instance;
 
-    public static function init($config)
+    public static function init()
     {
-        self::$instance = new HerepayService($config);
+        self::$instance = new HerepayService();
     }
 
     public static function __callStatic($method, $args)

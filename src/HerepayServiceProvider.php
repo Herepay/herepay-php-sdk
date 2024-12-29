@@ -20,18 +20,4 @@ class HerepayServiceProvider extends ServiceProvider
             return new HerepayService($config);
         });
     }
-
-    public function testHerepayServiceReceivesConfig()
-    {
-        $herepay = $this->app->make('herepay');
-
-        $expectedConfig = [
-            'sandbox' => true,
-            'secret_key' => 'test_secret_key',
-            'api_key' => 'test_api_key',
-            'private_key' => 'test_private_key',
-        ];
-
-        $this->assertEquals($expectedConfig, $herepay->getConfig());
-    }
 }

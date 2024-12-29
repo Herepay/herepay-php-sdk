@@ -11,7 +11,6 @@ class HerepayService
     private $secretKey;
     private $apiKey;
     private $privateKey;
-    private $config;
 
     /**
      * Constructor to initialize HerepayService with configuration.
@@ -23,8 +22,10 @@ class HerepayService
      *                      - private_key: string
      * @throws Exception
      */
-    public function __construct(array $config)
+    public function __construct()
     {
+        $config = require 'config/herepay.php';
+
         if (!isset($config['secret_key'], $config['api_key'], $config['private_key'])) {
             throw new Exception('Missing required configuration parameters.');
         }
@@ -33,7 +34,6 @@ class HerepayService
         $this->secretKey = $config['secret_key'];
         $this->apiKey = $config['api_key'];
         $this->privateKey = $config['private_key'];
-        $this->config = $config;
     }
 
     /**
@@ -180,6 +180,7 @@ class HerepayService
 
     public function getConfig(): array
     {
-        return $this->config;
+        $config = require 'config/herepay.php';
+        return $config;
     }
 }
