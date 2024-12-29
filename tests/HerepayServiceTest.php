@@ -64,7 +64,7 @@ class HerepayServiceTest extends TestCase
         }
     }
 
-    public function testCreateTransaction()
+    public function testInitiate()
     {
         $transactionData = $this->exampleTransactionData();
         

@@ -52,12 +52,12 @@ Retrieve available payment channels:
 
 ```php
 $paymentChannels = $herepay->getPaymentChannels();
-print_r($paymentChannels);
+echo $paymentChannels;
 ```
 
-### Create a Transaction
+### Initiate transaction
 
-Create a new payment transaction:
+Initiate transaction, response will redirect to Acquiring Bank
 
 ```php
 $transactionData = [
@@ -73,8 +73,8 @@ $transactionData = [
 ];
 
 $transactionData['checksum'] = $herepay->generateChecksum($transactionData);
-$response = $herepay->createTransaction($transactionData);
-print_r($response);
+$response = $herepay->initiate($transactionData);
+header($response);
 ```
 
 ### Get Transaction Details
@@ -84,7 +84,16 @@ Retrieve the details of a transaction:
 ```php
 $referenceCode = 'HP-INVAPI-XXXXXXXXXX';
 $transactionDetails = $herepay->getTransactionDetails($referenceCode);
-print_r($transactionDetails);
+echo $transactionDetails;
+```
+
+### Get Latest Transaction
+
+Retrieve the latest transaction:
+
+```php
+$transactions = $herepay->getTransactions();
+echo $transactions;
 ```
 
 ### Generate Checksum
@@ -104,7 +113,7 @@ $transactionData = [
     'payment_method' => 'Online Banking',
 ];
 
-$checksum = $herepay->generateChecksum($data);
+$checksum = $herepay->generateChecksum($transactionData);
 echo $checksum;
 ```
 

@@ -95,7 +95,7 @@ class HerepayService
      * @return array
      * @throws Exception
      */
-    public function createTransaction(array $data): array
+    public function initiate(array $data): array
     {
         $requiredFields = ['amount', 'description', 'payment_code', 'created_at', 'name', 'email', 'phone', 'bank_prefix', 'payment_method'];
 
@@ -142,6 +142,18 @@ class HerepayService
         return $response;
     }
 
+    /**
+     * Get latest transaction.
+     *
+     * @param string $referenceCode Transaction reference code.
+     * @return array
+     * @throws Exception
+     */
+    public function getTransactions()
+    {
+        $response = $this->get('/api/v1/herepay/transactions');
+        return $response;
+    }
 
     /**
      * Generate a checksum for data validation.
